@@ -1,5 +1,5 @@
 import bcrypt from "bcrypt";
-import jwt from "jsonwebtoken";
+import jwt, { SignOptions } from "jsonwebtoken";
 import { UserModel } from "../models/user.model";
 import { User } from "../models/user.types";
 import {
@@ -79,9 +79,8 @@ export class AuthService {
       id: user.id,
       email: user.email,
     };
-
     return jwt.sign(payload, this.JWT_SECRET, {
-      expiresIn: this.JWT_EXPIRES_IN,
+      expiresIn: this.JWT_EXPIRES_IN as any,
     });
   }
 
