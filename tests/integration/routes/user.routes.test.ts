@@ -10,7 +10,7 @@ describe("User Routes Integration Tests", () => {
 
   beforeEach(async () => {
     authService = new AuthService();
-    const user = await createTestUser("test@example.com", "password123");
+    const user = await createTestUser("pedro.test@example.com", "password123");
     userId = user.id;
 
     const loginResult = await authService.login({
